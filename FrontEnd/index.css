@@ -1,0 +1,119 @@
+.banner{
+    width: 100%;
+    height: 100%;
+
+}
+
+/*.banner-img{*/
+/*    object-fit: cover;*/
+/*    width: 100%;*/
+/*    height: 100%;*/
+/*}*/
+
+#panel{
+    height: 92vh !important;
+}
+.home-text{
+    z-index: 1000;
+    top: 28%;
+}
+.home-text .text{
+    font-size: 75px;
+    color: white;
+}
+
+.text
+{
+    text-transform: uppercase;
+    background-image: linear-gradient(
+            -225deg,
+            #231557 0%,
+            #44107a 29%,
+            #ff1361 67%,
+            #fff800 100%
+    );
+    background-size: auto auto;
+    background-clip: border-box;
+    background-size: 200% auto;
+    color: #fff;
+    /*background-clip: text;*/
+    text-fill-color: transparent;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: textclip 2s linear infinite;
+    display: inline-block;
+    font-size: 190px;
+}
+
+@keyframes textclip {
+    to {
+        background-position: 200% center;
+    }
+}
+
+.about-banner {
+background: url("./assests/dl.beatsnoop.com-thumb-1676283475_720.jpg");
+ height: 100vh;
+    background-size: cover;
+}
+.container{
+    width: 100%;
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.row{
+    display: flex;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.about-head{
+    padding: 170px 0 100px;
+    width: 50%;
+}
+.about-head h1 {
+    font-size: 55px;
+    color: #fff;
+    font-weight: 800;
+    line-height: 65px;
+    text-transform: uppercase;
+}
+
+.col-lg-12{
+    position: relative;
+    width: 100%;
+    min-height: 1px;
+    padding-right: 15px;
+    padding-left: 15px;
+}
+.about-head span {
+    font-size: 47px;
+    font-family: 'Caveat',cursive;
+    color: goldenrod;
+    line-height: 1.514;
+    display: block;
+    transform: rotate(-2deg);
+    margin-bottom: 14px;
+    font-weight: 300;
+    letter-spacing: -1px;
+}
+.about-head p {
+    font-size: 25px;
+    color: #fcfcfc;
+    line-height: 1.75;
+    position: relative;
+    left: 35px;
+}
+.modal-header{
+    padding-left: 45%;
+}
+#colD{
+    text-align: end;
+}
+#colA{
+    text-align: end;
+}
