@@ -1,6 +1,7 @@
 package lk.easycarRental.config;
 
 
+import lk.easycarRental.repo.CustomerRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -19,8 +20,8 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 import javax.persistence.EntityManagerFactory;
 import javax.sql.DataSource;
 
-public class JPAConfig {
-    import lk.easycarRetel.repo.CustomerRepo;
+
+
 
 
 
@@ -71,4 +72,4 @@ public class JPAConfig {
             return new JpaTransactionManager(emf);
         }
     }
-}
+
