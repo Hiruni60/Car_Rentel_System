@@ -2,6 +2,7 @@ package lk.easycarRental.config;
 
 
 import lk.easycarRental.repo.CustomerRepo;
+import lk.easycarRental.repo.DriverRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -29,7 +30,7 @@ import javax.sql.DataSource;
 
     @Configuration
     @EnableTransactionManagement // AOP Usage
-    @EnableJpaRepositories(basePackageClasses = {CustomerRepo.class})
+    @EnableJpaRepositories(basePackageClasses = {CustomerRepo.class, DriverRepo.class})
     @PropertySource("classpath:application.properties")
     public class JPAConfig {
 
