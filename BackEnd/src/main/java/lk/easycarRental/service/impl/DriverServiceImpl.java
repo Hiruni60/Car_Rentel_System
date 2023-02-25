@@ -29,7 +29,7 @@ public class DriverServiceImpl implements DriverService {
         repo.save(mapper.map(dto, Driver.class));
     }
 
-
+    @Override
     public void deleteDriver(String id) {
         if (!repo.existsById(id)){
             throw new RuntimeException("Wrong nic..Please Check the nic");
@@ -37,7 +37,7 @@ public class DriverServiceImpl implements DriverService {
         repo.deleteById(id);
     }
 
-
+    @Override
     public void updateDriver(DriverDTO dto) {
         if (!repo.existsById(dto.getLicenceId())){
             throw new RuntimeException("Wrong nic..Please Check the nic");
@@ -46,7 +46,7 @@ public class DriverServiceImpl implements DriverService {
     }
 
 
-
+    @Override
     public ArrayList<DriverDTO> getAllDrivers() {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<DriverDTO>>(){}.getType());
     }
