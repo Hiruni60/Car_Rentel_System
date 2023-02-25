@@ -1,7 +1,7 @@
 package lk.easycarRental.controller;
 
 
-import lk.easycarRental.dto.CustomerDTO;
+
 import lk.easycarRental.dto.DriverDTO;
 import lk.easycarRental.service.DriverService;
 import lk.easycarRental.util.ResponseUtil;
