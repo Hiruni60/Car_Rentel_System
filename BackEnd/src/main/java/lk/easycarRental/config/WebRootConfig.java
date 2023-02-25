@@ -1,5 +1,6 @@
 package lk.easycarRental.config;
 
+import lk.easycarRental.service.impl.CarServiceImpl;
 import lk.easycarRental.service.impl.CustomerServiceImpl;
 import lk.easycarRental.service.impl.DriverServiceImpl;
 import org.modelmapper.ModelMapper;
@@ -11,7 +12,7 @@ import org.springframework.context.annotation.Import;
 
     @Configuration
     @Import(JPAConfig.class)
-    @ComponentScan(basePackageClasses = {CustomerServiceImpl.class, DriverServiceImpl.class})
+    @ComponentScan(basePackageClasses = {CustomerServiceImpl.class, DriverServiceImpl.class, CarServiceImpl.class})
     public class WebRootConfig {
         @Bean
         public ModelMapper modelMapper(){
