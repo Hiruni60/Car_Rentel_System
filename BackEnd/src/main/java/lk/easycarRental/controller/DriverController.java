@@ -31,8 +31,8 @@ public class DriverController {
         return new ResponseUtil("ok","successfully loaded",service.getAllDrivers());
     }
     @DeleteMapping
-    public ResponseUtil deleteDriver(@RequestParam String id){
-        service.deleteDriver(id);
+    public ResponseUtil deleteDriver(@RequestParam String licenceNum){
+        service.deleteDriver(licenceNum);
         return new ResponseUtil("ok","successfully deleted",null);
     }
     @PutMapping

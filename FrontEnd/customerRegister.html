@@ -59,7 +59,7 @@
                             <button class="btn btn-danger" type="button" id="CustomerDelete"  > Delete</button>
                             <button class="btn btn-warning" type="button" id="CustomerUpdate"  > Update</button>
                             <button class="btn btn-success " type="button" id="clearDetails" > Clear</button>
-                            <button class="btn btn-info " type="button" id="getAll-Customer"  >Get-All </button>
+                            <button class="btn btn-info " type="button" id="searchCustomer"  >Search </button>
                         </div>
                     </section>
                 </div>
@@ -113,6 +113,8 @@
            dataType:"json",
            success:function (res) {
                alert(res.message);
+               LoadAllCustomer();
+               clearTextFields();
            },
            error:function (error) {
                alert(JSON.parse(error.responseText).message);
@@ -141,6 +143,88 @@
     //     });
     // };
 
+    //Search customer
+    $("#searchCustomer").click(function (){
+
+        $.ajax({
+            url:baseUrl+"customer?nic=" + $("#txtCustomerId").val(),
+            dataType:"json",
+            method: "get",
+            success:function (res){
+                $("#txtCustomerName").val(res.data.name)
+                $("#txtCustomerAddress").val(res.data.address)
+                $("#txtCustomerPassword").val(res.data.password)
+                $("#txtCustomerContactNum").val(res.data.contactNum)
+                $("#txtCustomerLicenceNum").val(res.data.licence)
+            }
+        })
+    });
+
+    //Delete Customer
+    $('#CustomerDelete').click(function (){
+        alert($("#txtCustomerId").val())
+        $.ajax({
+            url:baseUrl+"customer?nic=" + $("#txtCustomerId").val(),
+            dataType: "json",
+            method:"delete",
+            success:function (res){
+                alert(res.message);
+                clearTextFields();
+            },
+            error:function (error){
+
+            }
+        })
+    });
+
+    //Update Customer
+    $('#CustomerUpdate').click(function (){
+        let customerJson={
+            nic:$('#txtCustomerId').val(),
+            name:$('#txtCustomerName').val(),
+            address:$('#txtCustomerAddress').val(),
+            password:$('#txtCustomerPassword').val(),
+            contactNum:$('#txtCustomerContactNum').val(),
+            licence:$('#txtCustomerLicenceNum').val()
+        };
+        $.ajax({
+            url:baseUrl+"customer",
+            method:"put",
+            data:JSON.stringify(customerJson),
+            dataType:"json",
+            contentType:"application/json",
+            success:function (resp){
+                alert(resp.message);
+                LoadAllCustomer();
+                clearTextFields();
+            }
+        })
+    });
+
+    function clearTextFields(){
+        //$("#carAdd").find(":input")
+        $("form#customerForm :input").val('')
+
+    }
+
+    $('#clearDetails').click(function (){
+        console.log("clear")
+        clearTextFields()
+
+    });
+
+    LoadAllCustomer();
+    function LoadAllCustomer(){
+        $.ajax({
+            url:baseUrl+"customer",
+            success:function (res){
+                $('.Customertable').empty();
+                for(let i=0;i<res.data.length;i++){
+                    $('.Customertable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].license+`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].Contact+`</td></tr>`)
+                }
+            }
+        })
+    };
 
 </script>
 

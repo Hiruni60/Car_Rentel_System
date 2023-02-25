@@ -15,9 +15,9 @@ import javax.persistence.Id;
 @ToString
 public class Driver {
     @Id
-    private String licenceId;
+    private String licenceNum;
     private String name;
     private String address;
-    private String contactNum;
-    private boolean availability;
+    private String contact;
+    private boolean available;
 }

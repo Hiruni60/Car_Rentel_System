@@ -31,14 +31,19 @@ public class CustomerController {
         return new ResponseUtil("ok","successfully loaded",service.getAllCustomers());
     }
     @DeleteMapping
-    public ResponseUtil deleteCustomer(@RequestParam String id){
-        service.deleteCustomer(id);
+    public ResponseUtil deleteCustomer(@RequestParam String nic){
+        service.deleteCustomer(nic);
         return new ResponseUtil("ok","successfully deleted",null);
     }
     @PutMapping
     public ResponseUtil updateCustomer(@RequestBody CustomerDTO dto){
         service.updateCustomer(dto);
         return new ResponseUtil("ok","successfully updated",null);
+    }
+
+    @GetMapping(params = {"nic"})
+    public ResponseUtil searchCustomer(String nic){
+        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchCustomer(nic));
     }
 
 }

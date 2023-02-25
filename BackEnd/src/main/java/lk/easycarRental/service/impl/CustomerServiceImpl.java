@@ -27,11 +27,11 @@ public class CustomerServiceImpl implements CustomerService {
 
 
    @Override
-    public void deleteCustomer(String id) {
-        if (!repo.existsById(id)){
+    public void deleteCustomer(String nic) {
+        if (!repo.existsById(nic)){
             throw new RuntimeException("Wrong nic..Please Check the nic");
         }
-        repo.deleteById(id);
+        repo.deleteById(nic);
     }
 
     @Override
@@ -46,5 +46,21 @@ public class CustomerServiceImpl implements CustomerService {
     @Override
     public ArrayList<CustomerDTO> getAllCustomers() {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CustomerDTO>>(){}.getType());
+    }
+
+    @Override
+    public CustomerDTO searchCustomer(String nic) {
+//        Optional<Customer> customer = repo.findById(NIC);
+//        if (customer.isPresent()) {
+//            return mapper.map(customer,CustomerDTO.class);
+//        }
+//        return null;
+        if (!repo.existsById(nic)){
+            throw new RuntimeException("invalid id");
+
+        }
+        Customer customer = repo.findCustomerByNic(nic);
+        CustomerDTO map = mapper.map(customer,CustomerDTO.class);
+        return map;
     }
 }
