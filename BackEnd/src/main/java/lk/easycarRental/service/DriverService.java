@@ -2,7 +2,7 @@ package lk.easycarRental.service;
 
 
 
-import lk.easycarRental.dto.CustomerDTO;
+
 import lk.easycarRental.dto.DriverDTO;
 
 import java.util.ArrayList;

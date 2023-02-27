@@ -28,8 +28,10 @@ public class DriverController {
 
     @GetMapping
     public ResponseUtil getAllDrivers(){
+
         return new ResponseUtil("ok","successfully loaded",service.getAllDrivers());
     }
+
     @DeleteMapping
     public ResponseUtil deleteDriver(@RequestParam String licenceNum){
         service.deleteDriver(licenceNum);
@@ -40,4 +42,12 @@ public class DriverController {
         service.updateDriver(dto);
         return new ResponseUtil("ok","successfully updated",null);
     }
+
+    @GetMapping(params = {"licenceNum"})
+    public ResponseUtil searchDriver(String licenceNum){
+        return new ResponseUtil("OK","Successfully Loaded. :" ,service.searchDriver(licenceNum));
+    }
+
+
+
 }
