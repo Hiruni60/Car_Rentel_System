@@ -41,7 +41,7 @@
                           </div>
                           <div class="col-md-9 pe-5">
 
-                            <input type="text" class="form-control form-control-lg"/>
+                            <input type="text" class="form-control form-control-lg" name="vehicalNo"/>
 
                           </div>
                         </div>
@@ -55,7 +55,7 @@
                           </div>
                           <div class="col-md-9 pe-5">
 
-                            <input type="text" class="form-control form-control-lg"/>
+                            <input type="text" class="form-control form-control-lg" name="brand"/>
 
                           </div>
                         </div>
@@ -69,26 +69,15 @@
                             <h6 class="mb-0">Type</h6>
 
                           </div>
-                          <div class="col-md-9 pe-5">
+                          <div class="col-md-9 pe-5" style="padding-bottom: 9px;">
+                            <select class="form-select" aria-label="Transmission" name="type">
+<!--                              <option selected>Transmission Types</option>-->
+                              <option value="1">General</option>
+                              <option value="2">Premium</option>
+                              <option value="3">Luxury</option>
 
-                            <div class="d-flex justify-content-between">
-                              <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                                <label class="form-check-label" for="exampleCheck1">General</label>
-                              </div>
+                            </select>
 
-                              <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck2">
-                                <label class="form-check-label" for="exampleCheck1">Premium</label>
-                              </div>
-
-                              <div class="form-group form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck3">
-                                <label class="form-check-label" for="exampleCheck1">Luxury</label>
-                              </div>
-                            </div>
-
-                          </div>
                         </div>
 
                         <hr class="mx-n3">
@@ -96,14 +85,14 @@
                         <div class="row align-items-center py-3">
                           <div class="col-md-3 ps-5">
 
-                            <h6 class="mb-0">Address</h6>
+                            <h6 class="mb-0">Images</h6>
 
                           </div>
                           <div class="col-md-9 pe-5">
 
                             <div class="d-flex justify-content-between">
                               <div>
-                                <img src="#" class="img-thumbnail" alt="...">
+                                <img src="#formFileSm1" class="img-thumbnail" alt="...">
                                 <div class="mb-3">
                                   <label for="formFileSm1" class="form-label">Small file input example</label>
                                   <input class="form-control form-control-sm" id="formFileSm1" type="file">
@@ -148,7 +137,7 @@
                           </div>
                           <div class="col-md-9 pe-5">
 
-                            <input type="text" class="form-control form-control-lg"/>
+                            <input type="text" class="form-control form-control-lg" name="noOfPassenger"/>
 
                           </div>
                         </div>
@@ -240,6 +229,36 @@
 
                         <hr class="mx-n3">
 
+                        <div class="row align-items-center pt-4 pb-3">
+                          <div class="col-md-3 ps-5">
+
+                            <h6 class="mb-0"> Mileage</h6>
+
+                          </div>
+                          <div class="col-md-9 pe-5">
+
+                            <input type="text" class="form-control form-control-lg"/>
+
+                          </div>
+                        </div>
+
+                        <hr class="mx-n3">
+
+                        <div class="row align-items-center pt-4 pb-3">
+                          <div class="col-md-3 ps-5">
+
+                            <h6 class="mb-0"> Service Mileage</h6>
+
+                          </div>
+                          <div class="col-md-9 pe-5">
+
+                            <input type="text" class="form-control form-control-lg"/>
+
+                          </div>
+                        </div>
+
+                        <hr class="mx-n3">
+
 
 
                         <div class="row align-items-center pt-4 pb-3">
@@ -250,7 +269,7 @@
                           </div>
                           <div class="col-md-9 pe-5">
 
-                            <input type="text" class="form-control form-control-lg"/>
+                            <input type="color" class="form-control form-control-lg"/>
 
                           </div>
                         </div>
