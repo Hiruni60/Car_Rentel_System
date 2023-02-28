@@ -7,7 +7,10 @@ import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.Lob;
+import javax.persistence.OneToMany;
 import java.math.BigDecimal;
+import java.util.Collection;
 
 @Entity
 @NoArgsConstructor
@@ -42,19 +45,19 @@ public class Car {
     private int serviceMileage;
     private String color;
     private boolean availability;
-//    @Lob
-//    private byte[] img_front;
-//    @Lob
-//    private byte[] img_back;
-//    @Lob
-//    private byte[] img_side;
-//    @Lob
-//    private byte[] img_interior;
-//
+    @Lob
+    private byte[] img_front;
+    @Lob
+    private byte[] img_back;
+    @Lob
+    private byte[] img_side;
+    @Lob
+    private byte[] img_interior;
+
 //    @OneToMany(mappedBy = "car")
-//    private Collection<Booking> bookings = new ArrayList<>();
-//
-//    public Car(String registrationNumber) {
-//        this.registrationNumber = registrationNumber;
-//    }
+//   private Collection<Booking> bookings = new ArrayList<>();
+
+    public Car(String vehicalNo) {
+        this.vehicalNo = vehicalNo;
+    }
 }

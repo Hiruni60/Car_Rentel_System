@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.ToString;
 
+
 import java.math.BigDecimal;
 
 
@@ -13,7 +14,7 @@ import java.math.BigDecimal;
 @Data
 @ToString
 public class CarDTO {
-    private String vehicalNo;
+    private String  vehicalNo;
     private String brand;
     private String type;
     private int noOfPassenger;
@@ -22,6 +23,13 @@ public class CarDTO {
     private BigDecimal monthlyPrice;
     private BigDecimal dailyPrice;
     private BigDecimal priceForExtraKM;
-    private String colour;
-    private boolean available;
+    private int mileage;
+    private int serviceMileage;
+    private String color;
+    private boolean availability;
+
+    private byte[] img_front;
+    private byte[] img_back;
+    private byte[] img_side;
+    private byte[] img_interior;
 }

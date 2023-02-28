@@ -23,28 +23,48 @@ public class CarServiceImpl implements CarService {
     private ModelMapper mapper;
 
     public void saveCar(CarDTO dto){
+
         repo.save(mapper.map(dto, Car.class));
     }
     @Override
-    public void deleteCar(String id) {
-        if (!repo.existsById(id)){
-            throw new RuntimeException("Wrong nic..Please Check the nic");
+    public void deleteCar(String vehicalNo) {
+        if (!repo.existsById(vehicalNo)){
+            throw new RuntimeException("Wrong Registration Number..Please enter a valid number !");
         }
-        repo.deleteById(id);
+        repo.deleteById(vehicalNo);
     }
 
     @Override
     public void updateCar(CarDTO dto) {
         if (!repo.existsById(dto.getVehicalNo())){
-            throw new RuntimeException("Wrong nic..Please Check the nic");
+            throw new RuntimeException("Car Doesn't Exist. Please Enter Valid identifier..!");
         }
         repo.save(mapper.map(dto, Car.class));
     }
 
 
     @Override
-    public ArrayList<CarDTO> getAllCars() {
+    public ArrayList<CarDTO> findCarByVehicalNo() {
+       // return mapper.map(repo.findCarByVehicalNo(vehicalNo),CarDTO.class);
+
+        return null;
+    }
+
+
+
+
+
+    public ArrayList<CarDTO> getAllCar() {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<CarDTO>>(){}.getType());
     }
 
+    @Override
+    public int countCarsByAvailabilityIsTrue() {
+        return repo.countCarsByAvailabilityIsTrue();
+    }
+
+//    @Override
+//    public int countCarsScheduled() {
+//        return repo.countCarsScheduled();
+//    }
 }

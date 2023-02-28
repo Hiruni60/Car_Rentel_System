@@ -8,7 +8,7 @@
   <link href="index.css" rel="stylesheet">
   <style>
     #admin_Registration{
-      background-image: url("assests/dl.beatsnoop.com-thumb-1676486520.jpg");
+      background-image: url("assests/back_S555.jpg");
       width: 1536px;
       height: 712px;
       background-size: cover;
@@ -19,9 +19,7 @@
 <body>
 
 <section id="admin_Registration">
-  <div>
-
-  </div>
+  <form id="adminForm" action="">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header" style="padding-left: 15%">
@@ -30,7 +28,7 @@
       <div class="modal-body">
         <section style="width: 745px; padding-left: 129px; padding-top: 50px;">
           <div class="mb-3">
-            <input class="form-control" id="txtAdminId" type="text" name="adminID" placeholder="Nic">
+            <input class="form-control" id="txtAdminNic" type="text" name="adminNic" placeholder="Nic">
           </div>
           <div class="mb-3">
             <input class="form-control" id="txtAdminName" multiple type="text" name="name" placeholder="Name">
@@ -39,19 +37,19 @@
             <input class="form-control" id="txtAdminAddress" type="text" name="address" placeholder="Address">
           </div>
           <div class="mb-3">
-            <input class="form-control form-control-sm" id="txtAdminEmail" type="text" name="email" placeholder="Email">
+            <input class="form-control form-control-sm" id="txtAdminEmail" type="text" name="email" placeholder="Email" >
           </div>
           <div class="mb-3">
             <input class="form-control form-control-sm" id="txtAdminPassword" type="text" name="password" placeholder="Password">
           </div>
           <div class="mb-3">
-            <input class="form-control form-control-sm" id="txtCustomerContactNum" type="number" name="contactnum" placeholder="ContactNum">
+            <input class="form-control form-control-sm" id="txtAdminContactNum" type="number" name="contactNum" placeholder="ContactNum">
           </div>
           <div aria-label="Basic mixed styles example" class="btn-group" role="group">
             <button class="btn btn-danger" type="button" id="AdminDelete"  > Delete</button>
             <button class="btn btn-warning" type="button" id="AdminUpdate"  > Update</button>
             <button class="btn btn-success " type="button" id="clearDetails" > Clear</button>
-            <button class="btn btn-info " type="button" id="getAllAdmins"  >Get-All </button>
+            <button class="btn btn-info " type="button" id="searchAdmin"  >Search </button>
           </div>
         </section>
       </div>
@@ -61,11 +59,145 @@
       </div>
     </div>
   </div>
+  </form>
 </section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 <script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
 
+
+<script>
+
+  let baseUrl = "http://localhost:8080/BackEnd_war/"
+  // getAllCustomers();
+
+
+  $('#saveAdmin').click(function (){
+    alert("saving........");
+
+    let formData = $('#adminForm').serialize();
+
+    $.ajax({
+      url:baseUrl+"admin",
+      method:"post",
+      data:formData,
+      dataType:"json",
+      success:function (res) {
+        alert(res.message);
+        //LoadAlladmin();
+        clearTextFields();
+      },
+      error:function (error) {
+        alert(JSON.parse(error.responseText).message);
+      }
+
+    });
+  });
+
+  // function getAllCustomers(){
+  //     $('#customerTableBody').empty();
+  //     $.ajax({
+  //         url: baseUrl+"customer",
+  //         success:function (res) {
+  //             for (let c of res.data) {
+  //                 let nic=c.nic;
+  //                 let name=c.name;
+  //                 let address=c.address;
+  //                 let contact=c.contact;
+  //                 let license=c.license;
+  //
+  //
+  //                 let row = "<tr><td>"+nic+"</td><td>"+name+"</td><td>"+address+"</td><td>"+contact+"</td><td>"+license+"</td></tr>"
+  //                 $('#customerTableBody').append(row);
+  //             }
+  //         }
+  //     });
+  // };
+
+  //Search customer
+  $("#searchAdmin").click(function (){
+
+    $.ajax({
+      url:baseUrl+"admin?adminNic=" + $("#txtAdminNic").val(),
+      dataType:"json",
+      method: "get",
+      success:function (res){
+        $("#txtAdminName").val(res.data.name)
+        $("#txtAdminAddress").val(res.data.address)
+        $("#txtAdminEmail").val(res.data.email)
+        $("#txtAdminPassword").val(res.data.password)
+        $("#txtAdminContactNum").val(res.data.contactNum)
+      }
+    })
+  });
+
+  //Delete Customer
+  $('#AdminDelete').click(function (){
+    alert($("#txtAdminNic").val())
+    $.ajax({
+      url:baseUrl+"admin?adminNic=" + $("#txtAdminNic").val(),
+      dataType: "json",
+      method:"delete",
+      success:function (res){
+        alert(res.message);
+        clearTextFields();
+      },
+      error:function (error){
+
+      }
+    })
+  });
+
+  //Update Customer
+  $('#AdminUpdate').click(function (){
+    let adminJson={
+      adminNic:$('#txtAdminNic').val(),
+      name:$('#txtAdminName').val(),
+      address:$('#txtAdminAddress').val(),
+      email:$('#txtAdminEmail').val(),
+      password:$('#txtAdminPassword').val(),
+      contactNum:$('#txtAdminContactNum').val(),
+    };
+    $.ajax({
+      url:baseUrl+"admin",
+      method:"put",
+      data:JSON.stringify(adminJson),
+      dataType:"json",
+      contentType:"application/json",
+      success:function (resp){
+        alert(resp.message);
+       // LoadAllAdmin();
+        clearTextFields();
+      }
+    })
+  });
+
+  function clearTextFields(){
+    //$("#carAdd").find(":input")
+    $("form#adminForm :input").val('')
+
+  }
+
+  $('#clearDetails').click(function (){
+    console.log("clear")
+    clearTextFields()
+
+  });
+
+ // LoadAllAdmin();
+  // function LoadAllAdmin(){
+  //   $.ajax({
+  //     url:baseUrl+"admin",
+  //     success:function (res){
+  //       $('.Customertable').empty();
+  //       for(let i=0;i<res.data.length;i++){
+  //         $('.Customertable').append(`<tr><td>`+res.data[i].nic +`</td><td>`+res.data[i].license+`</td><td>`+res.data[i].name+`</td><td>`+res.data[i].address+`</td><td>`+res.data[i].Contact+`</td></tr>`)
+  //       }
+  //     }
+  //   })
+  // };
+
+</script>
 </body>
 </html>

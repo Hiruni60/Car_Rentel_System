@@ -8,497 +8,186 @@
   <link href="index.css" rel="stylesheet">
 </head>
 <body>
-<!--<section class="ftco-section ftco-car-details bg-light " id="car-single-selection">-->
-<!--  <div class="sticky-top">-->
-<!--    <nav class="navbar navbar-expand-lg bg-white border-bottom border-secondary">-->
-<!--      <div class="container-fluid">-->
-<!--        <a class="navbar-brand" href="#">Start Booking!</a>-->
-<!--        <div class="collapse navbar-collapse" id="navbarNavDropdown">-->
-<!--          <ul class="navbar-nav">-->
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link active" aria-current="page"-->
-<!--                 href="#home">Home</a>-->
-<!--            </li>-->
-<!--            <li class="nav-item">-->
-<!--              <a class="nav-link" href="#">Cars</a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </nav>-->
-<!--  </div>-->
-<!--  <div class="container">-->
-<!--    <div class="row justify-content-center">-->
-<!--      <div class="col-8">-->
-<!--        <div class="car-details">-->
-<!--          <div-->
-<!--                  class="car-single-heading d-flex justify-content-center flex-column">-->
-<!--            <h1 class="text-center">Toyota Supra</h1>-->
-<!--            <p class="text-center">WP-2024</p>-->
-<!--          </div>-->
-<!--          <div id="carousel-car-single" class="carousel slide carousel-fade">-->
-<!--            <div class="carousel-inner">-->
-<!--              <div class="carousel-item active">-->
-<!--                <img src="./assets/images/car-1.jpg"-->
-<!--                     class="d-block w-100" alt="...">-->
-<!--              </div>-->
-<!--              <div class="carousel-item">-->
-<!--                <img src="./assets/images/car-2.jpg"-->
-<!--                     class="d-block w-100" alt="...">-->
-<!--              </div>-->
-<!--              <div class="carousel-item">-->
-<!--                <img src="./assets/images/car-3.jpg"-->
-<!--                     class="d-block w-100" alt="...">-->
-<!--              </div>-->
-<!--              <button class="carousel-control-prev" type="button"-->
-<!--                      data-bs-target="#carousel-car-single"-->
-<!--                      data-bs-slide="prev">-->
+<section>
+<div>
+    <form class="col-2 " id="bookingRegisterForm" style="margin-left: 492px">
+        <div aria-hidden="true" aria-labelledby="bookingModel" class="" id="bookingModel" tabindex="-1"   >
+            <div class="modal-dialog">
+                <div class="modal-content" style="position: relative;right: 200px">
+                    <nav class="navbar navbar-expand-lg bg-body-tertiary" style="background-color: #313131;height: 40px; width: 900px">
+                        <div class="container-fluid">
+                            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+                                <span class="navbar-toggler-icon"></span>
+                            </button>
+                            <div class="collapse navbar-collapse" >
+                                <div class="navbar-nav" >
+                                    <a class="nav-link disabled" style="color: white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16" style="margin-right: 18px">
+                                            <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-google" viewBox="0 0 16 16" style="margin-right: 18px">
+                                            <path d="M15.545 6.558a9.42 9.42 0 0 1 .139 1.626c0 2.434-.87 4.492-2.384 5.885h.002C11.978 15.292 10.158 16 8 16A8 8 0 1 1 8 0a7.689 7.689 0 0 1 5.352 2.082l-2.284 2.284A4.347 4.347 0 0 0 8 3.166c-2.087 0-3.86 1.408-4.492 3.304a4.792 4.792 0 0 0 0 3.063h.003c.635 1.893 2.405 3.301 4.492 3.301 1.078 0 2.004-.276 2.722-.764h-.003a3.702 3.702 0 0 0 1.599-2.431H8v-3.08h7.545z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16" style="margin-right: 18px">
+                                            <path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334 0-.14 0-.282-.006-.422A6.685 6.685 0 0 0 16 3.542a6.658 6.658 0 0 1-1.889.518 3.301 3.301 0 0 0 1.447-1.817 6.533 6.533 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.325 9.325 0 0 1-6.767-3.429 3.289 3.289 0 0 0 1.018 4.382A3.323 3.323 0 0 1 .64 6.575v.045a3.288 3.288 0 0 0 2.632 3.218 3.203 3.203 0 0 1-.865.115 3.23 3.23 0 0 1-.614-.057 3.283 3.283 0 0 0 3.067 2.277A6.588 6.588 0 0 1 .78 13.58a6.32 6.32 0 0 1-.78-.045A9.344 9.344 0 0 0 5.026 15z"/>
+                                        </svg>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16" style="margin-right: 550px">
+                                            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"/>
+                                        </svg>
+                                    </a>
+                                    <a class="nav-link disabled" style="color: white">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-telephone-fill" viewBox="0 0 16 16">
+                                            <path fill-rule="evenodd" d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"/>
+                                        </svg>
+                                        (+941)-457634743
+                                    </a>
 
-<!--              </button>-->
-<!--              <button class="carousel-control-next" type="button"-->
-<!--                      data-bs-target="#carousel-car-single"-->
-<!--                      data-bs-slide="next">-->
+                                </div>
+                            </div>
+                        </div>
+                    </nav>
 
-<!--              </button>-->
+                    <div class="modal-header" style="background-color: white;">
+                        <h5 class="modal-title" id="exampleModalLabels" style="color: #2F2E53;padding-left: 350px;font-weight: bold">Booking Your Car </h5>
+                        <button aria-label="Close" class="btn-close" data-bs-dismiss="modal" type="button"></button>
+                    </div>
 
-<!--            </div>-->
+                    <div class="container text-center" style="background-color: white">
+                        <!--                        start bookin context-->
+                        <div class="classGrid" id="grids" style="padding-top: 0px">
+                            <div class="social" style="background-color: white;position: relative;bottom: 20px">
+                                <h1>Easy Car Rent</h1>
 
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div class="col-md d-flex align-self-stretch">-->
-<!--        <div class="media block-6 services">-->
-<!--          <div class="media-body py-md-4">-->
-<!--            <div class="d-flex mb-3 align-items-center">-->
-<!--              <div-->
-<!--                      class="icon d-flex align-items-center justify-content-center">-->
-<!--                <span class="flaticon-dashboard"></span>-->
-<!--              </div>-->
-<!--              <div class="text">-->
-<!--                <h3 class="heading mb-0 pl-3">-->
-<!--                  Mileage-->
-<!--                  <span>40,000</span>-->
-<!--                </h3>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-md d-flex align-self-stretch">-->
-<!--        <div class="media block-6 services">-->
-<!--          <div class="media-body py-md-4">-->
-<!--            <div class="d-flex mb-3 align-items-center">-->
-<!--              <div-->
-<!--                      class="icon d-flex align-items-center justify-content-center">-->
-<!--                <span class="flaticon-pistons"></span>-->
-<!--              </div>-->
-<!--              <div class="text">-->
-<!--                <h3 class="heading mb-0 pl-3">-->
-<!--                  Transmission-->
-<!--                  <span>Manual</span>-->
-<!--                </h3>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <div class="col-md d-flex align-self-stretch">-->
-<!--        <div class="media block-6 services">-->
-<!--          <div class="media-body py-md-4">-->
-<!--            <div class="d-flex mb-3 align-items-center">-->
-<!--              <div-->
-<!--                      class="icon d-flex align-items-center justify-content-center">-->
-<!--                <span class="flaticon-car-seat"></span>-->
-<!--              </div>-->
-<!--              <div class="text">-->
-<!--                <h3 class="heading mb-0 pl-3">-->
-<!--                  Seats-->
-<!--                  <span>5 </span>-->
-<!--                </h3>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
+                            </div>
+                            <div class="container text-center" style="background-color: white;">
+                                <div class="row" style="background-color: white">
+                                    <div class="col"style="background-color: white;margin-right: 30px;position: relative;bottom: 50px;border: none" >
+                                        <div class="card" style="width: 28rem;border: none">
+                                            <img src="assests/dl.beatsnoop.com-low-264eca35cd43636bfd.jpg" class="card-img-top" alt="..." >
+                                            <div class="card-body">
+                                                <div class="container text-center">
+                                                    <div class="row" >
+                                                        <div class="col"style="position: relative;width: 450px;bottom: 30px">
 
-<!--      <div class="col-md d-flex align-self-stretch">-->
-<!--        <div class="media block-6 services">-->
-<!--          <div class="media-body py-md-4">-->
-<!--            <div class="d-flex mb-3 align-items-center">-->
-<!--              <div-->
-<!--                      class="icon d-flex align-items-center justify-content-center">-->
-<!--                <span class="flaticon-diesel"></span>-->
-<!--              </div>-->
-<!--              <div class="text">-->
-<!--                <h3 class="heading mb-0 pl-3">-->
-<!--                  Fuel-->
-<!--                  <span>Petrol</span>-->
-<!--                </h3>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--    <div class="row">-->
-<!--      <div class="col-md-12 pills">-->
-<!--        <div class="bd-example bd-example-tabs">-->
-<!--          <nav>-->
-<!--            <div class="nav nav-tabs" id="nav-tab" role="tablist">-->
-<!--              <button class="nav-link active" id="nav-home-tab"-->
-<!--                      data-bs-toggle="tab"-->
-<!--                      data-bs-target="#pills-user" type="button"-->
-<!--                      role="tab" aria-controls="nav-home"-->
-<!--                      aria-selected="true">User</button>-->
-<!--              <button class="nav-link" id="nav-profile-tab"-->
-<!--                      data-bs-toggle="tab"-->
-<!--                      data-bs-target="#pills-driver" type="button"-->
-<!--                      role="tab" aria-controls="nav-profile"-->
-<!--                      aria-selected="false">Driver Details</button>-->
-<!--              <button class="nav-link" id="nav-contact-tab"-->
-<!--                      data-bs-toggle="tab"-->
-<!--                      data-bs-target="#pills-review" type="button"-->
-<!--                      role="tab" aria-controls="nav-contact"-->
-<!--                      aria-selected="false">Review</button>-->
+                                                            <h6 id="lblCarModel">Toyota</h6>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sm">Vehicle Num</span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCarNUm" name="vehicleNum">
+                                                            </div>
 
-<!--            </div>-->
-<!--          </nav>-->
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml1">Price Per Month  </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing exampnle iput" aria-describedby="inputGroup-sizing-sm" id="txtFreeKmADay">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml2">Price per Day  </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtFreemonth">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml3">Free Km for a Day </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtPricePerExtraKm">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml4">Loss Damage Waiver </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtlossDamagevaiver">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Customer Name </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerId" name="nic">
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <h4>Your Booking Id</h4><h5 id="bookingId">B000</h5>
+                                            </div>
+                                        </div>
+                                    </div>
 
+                                    <div class="col" style="width: 350px" >
+                                        <!--    2 of 2-->
+                                        <div class="card" id="bookingCard" style="width: 400px;height:750px;position: relative;right: 50px;border: none;bottom: 50px">
+                                            <div class="card-header" style="background-color: #2C3E50;height: 30px;padding-top: 0px;margin-bottom: 0px" >
+                                                <h1 style="color: white;font-size: 20px">Just Pay</h1>
+                                            </div>
+                                            <div class="container py-5 h-100" style="position: relative;bottom: 10px;right: 50px;left: 0;border:  none" >
+                                                <div class="row d-flex justify-content-center align-items-center h-100" style="border: none">
+                                                    <div class="col-lg-8 col-xl-6" style="width: max-content;padding-top: 0px;border: none" id="payment">
+                                                        <div class="card rounded-3"  style="width: 390px;bottom: 28px;height:600px;border: none" >
+                                                            <img src="assests/front_S555.jpg"
+                                                                 class="w-100" style="border-top-left-radius: .3rem; border-top-right-radius: .3rem;width: 200px;height: 200px"
+                                                                 alt="Sample photo">
 
-<!--          <div class="tab-content" id="pills-tabContent">-->
-<!--            <div class="tab-pane fade show active" id="pills-user"-->
-<!--                 role="tabpanel" aria-labelledby="pills-description-tab">-->
-<!--              <div class="row">-->
-<!--                <div class="col-12">-->
-<!--                  <form class="row g-3">-->
-<!--                    <div class="col-12">-->
-<!--                      <h5>Choose date from-->
-<!--                        below to-->
-<!--                        continue</h5>-->
-<!--                    </div>-->
+                                                            <div class="card-body p-4 p-md-5" style="position: relative;bottom: 50px;height: 500px;">
+                                                                <h3 class="mb-4 pb-2 pb-md-0 mb-md-5 px-md-2">Bank Details</h3>
+                                                                <div class="form-outline mb-4" style="align-items: center;position: relative;bottom: 40px" >
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" >Our Account No</span>
+                                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="carNum" id="txtAccountNo" name="accountNo">
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" >Beneficiary Name</span>
+                                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtBeneficiaryName" name="">
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" >D & T</span>
+                                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="BookingDate" name="">
+                                                                        <input type="date" class="form-control" aria-label="Sizing example input" aria-describedby="" id="DueDate" name="date">
 
-<!--                    <div class="col-6">-->
-<!--                      <label for="datepicker1"-->
-<!--                             class="form-label">check-in</label>-->
-<!--                      <br>-->
-<!--                      <input type="text"-->
-<!--                             id="datepicker1"-->
-<!--                             class="datepicker">-->
-<!--                    </div>-->
-<!--                    <div class="col-6">-->
-<!--                      <label for="datepicker2"-->
-<!--                             class="form-label">return</label>-->
-<!--                      <br>-->
-<!--                      <input type="text"-->
-<!--                             id="datepicker2"-->
-<!--                             class="datepicker">-->
-<!--                    </div>-->
-<!--                    <hr>-->
-<!--                    <div class="mt-5 mb-3">-->
-<!--                      <label for="formFile"-->
-<!--                             class="form-label">Confirm-->
-<!--                        payment by-->
-<!--                        uploading a slip-->
-<!--                        (images/PDF)</label>-->
-<!--                      <input class="form-control"-->
-<!--                             type="file"-->
-<!--                             id="formFile">-->
-<!--                    </div>-->
+                                                                    </div>
+                                                                    <div class="form-check">
+                                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1" >
+                                                                        <label class="form-check-label" for="flexRadioDefault1" style="position:relative;right: 120px">
+                                                                            Day
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="form-check" >
+                                                                        <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" style="position: relative;left: 110px;bottom: 24px"  >
+                                                                        <label class="form-check-label" for="flexRadioDefault2" style="position: relative;bottom: 23px">
+                                                                            Month
+                                                                        </label>
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-3">
+                                                                        <span class="input-group-text" >Days</span>
+                                                                        <input type="number" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDays" name="date">
+                                                                    </div>
+                                                                    <div class="form-check form-switch">
+                                                                        <input class="form-check-input" type="checkbox" role="switch" id="chcHireDriver"  >
+                                                                        <label class="form-check-label" for="chcHireDriver" style="position: relative;right: 90px">Hire Driver</label>
+                                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDrivers" placeholder="Driver" style="width: 175px;position: relative;bottom: 30px;left: 80px">
+                                                                    </div>
+                                                                    <div class="input-group input-group-sm mb-3" style="position: relative;bottom: 21px;padding-bottom: 8px">
+                                                                        <span class="input-group-text" >Driver Name</span>
+                                                                        <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtDriverName" name="">
+                                                                    </div>
+                                                                </div>
+                                                                <div class="row"style="position: relative;bottom: 85px">
+                                                                    <div class="col-md-6 mb-4">
+                                                                        <div class="form-outline">
+                                                                            <label class="form-label" for="form3Example1w">Upload Bank Slip</label>
+                                                                            <input type="file"  class="form-control" placeholder="license img font" name="nicImage" style="position: relative;width: auto"/>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                                <button type="button" class="btn btn-success" id="btnBooking" style="position: relative; bottom: 80px;width: 300px">Conform Booking</button>
 
-<!--                    <div class="col-12 mt-3">-->
-<!--                      <div class="form-check">-->
-<!--                        <input class="form-check-input"-->
-<!--                               type="checkbox"-->
-<!--                               id="gridCheck">-->
-<!--                        <label class="form-check-label"-->
-<!--                               for="gridCheck">-->
-<!--                          Include-->
-<!--                          a driver-->
-<!--                        </label>-->
-<!--                      </div>-->
-<!--                    </div>-->
-<!--                    <div class="col-12 mt-5">-->
-<!--                      <button type="submit"-->
-<!--                              class="btn btn-primary">Checkout</button>-->
-<!--                    </div>-->
-<!--                  </form>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
 
-<!--            <div class="tab-pane fade" id="pills-driver" role="tabpanel"-->
-<!--                 aria-labelledby="pills-manufacturer-tab">-->
-<!--              <p>Even the all-powerful Pointing has no control about-->
-<!--                the blind-->
-<!--                texts it is an almost unorthographic life One-->
-<!--                day-->
-<!--                however a small line of blind text by the name-->
-<!--                of Lorem-->
-<!--                Ipsum decided to leave for the far World of-->
-<!--                Grammar.</p>-->
-<!--              <p>When she reached the first hills of the Italic-->
-<!--                Mountains, she-->
-<!--                had a last view back on the skyline of her-->
-<!--                hometown-->
-<!--                Bookmarksgrove, the headline of Alphabet Village-->
-<!--                and the-->
-<!--                subline of her own road, the Line Lane. Pityful-->
-<!--                a-->
-<!--                rethoric question ran over her cheek, then she-->
-<!--                continued-->
-<!--                her way.</p>-->
-<!--            </div>-->
-
-<!--            <div class="tab-pane fade" id="pills-review" role="tabpanel"-->
-<!--                 aria-labelledby="pills-review-tab">-->
-<!--              <div class="row">-->
-<!--                <div class="col-md-7">-->
-<!--                  <h3 class="head">23 Reviews</h3>-->
-<!--                  <div class="review d-flex">-->
-<!--                    <div class="user-img">-->
-<!--&lt;!&ndash;                         style="background-image: url(images/person_1.jpg)">&ndash;&gt;-->
-<!--                    </div>-->
-<!--                    <div class="desc">-->
-<!--                      <h4>-->
-<!--                                                                                                        <span-->
-<!--                                                                                                                class="text-left">Jacob-->
-<!--                                                                                                                Webb</span>-->
-<!--                        <span-->
-<!--                                class="text-right">14-->
-<!--                                                                                                                March-->
-<!--                                                                                                                2018</span>-->
-<!--                      </h4>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                        </span>-->
-<!--                        <span-->
-<!--                                class="text-right"><a-->
-<!--                                href="#"-->
-<!--                                class="reply"><i-->
-<!--                                class="icon-reply"></i></a></span>-->
-<!--                      </p>-->
-<!--                      <p>When she reached the-->
-<!--                        first-->
-<!--                        hills of the-->
-<!--                        Italic-->
-<!--                        Mountains, she-->
-<!--                        had a-->
-<!--                        last view back-->
-<!--                        on the-->
-<!--                        skyline of her-->
-<!--                        hometown-->
-<!--                        Bookmarksgrov-->
-<!--                      </p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="review d-flex">-->
-<!--&lt;!&ndash;                    <div class="user-img"&ndash;&gt;-->
-<!--&lt;!&ndash;                         style="background-image: url(images/person_2.jpg)">&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    <div class="desc">-->
-<!--                      <h4>-->
-<!--                                                                                                        <span-->
-<!--                                                                                                                class="text-left">Jacob-->
-<!--                                                                                                                Webb</span>-->
-<!--                        <span-->
-<!--                                class="text-right">14-->
-<!--                                                                                                                March-->
-<!--                                                                                                                2018</span>-->
-<!--                      </h4>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                        </span>-->
-<!--                        <span-->
-<!--                                class="text-right"><a-->
-<!--                                href="#"-->
-<!--                                class="reply"><i-->
-<!--                                class="icon-reply"></i></a></span>-->
-<!--                      </p>-->
-<!--                      <p>When she reached the-->
-<!--                        first-->
-<!--                        hills of the-->
-<!--                        Italic-->
-<!--                        Mountains, she-->
-<!--                        had a-->
-<!--                        last view back-->
-<!--                        on the-->
-<!--                        skyline of her-->
-<!--                        hometown-->
-<!--                        Bookmarksgrov-->
-<!--                      </p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                  <div class="review d-flex">-->
-<!--&lt;!&ndash;                    <div class="user-img"&ndash;&gt;-->
-<!--&lt;!&ndash;                         style="background-image: url(images/person_3.jpg)">&ndash;&gt;-->
-<!--&lt;!&ndash;                    </div>&ndash;&gt;-->
-<!--                    <div class="desc">-->
-<!--                      <h4>-->
-<!--                                                                                                        <span-->
-<!--                                                                                                                class="text-left">Jacob-->
-<!--                                                                                                                Webb</span>-->
-<!--                        <span-->
-<!--                                class="text-right">14-->
-<!--                                                                                                                March-->
-<!--                                                                                                                2018</span>-->
-<!--                      </h4>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                        </span>-->
-<!--                        <span-->
-<!--                                class="text-right"><a-->
-<!--                                href="#"-->
-<!--                                class="reply"><i-->
-<!--                                class="icon-reply"></i></a></span>-->
-<!--                      </p>-->
-<!--                      <p>When she reached the-->
-<!--                        first-->
-<!--                        hills of the-->
-<!--                        Italic-->
-<!--                        Mountains, she-->
-<!--                        had a-->
-<!--                        last view back-->
-<!--                        on the-->
-<!--                        skyline of her-->
-<!--                        hometown-->
-<!--                        Bookmarksgrov-->
-<!--                      </p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--                <div class="col-md-5">-->
-<!--                  <div class="rating-wrap">-->
-<!--                    <h3 class="head">Give a Review-->
-<!--                    </h3>-->
-<!--                    <div class="wrap">-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                (98%)-->
-<!--                                                                                                        </span>-->
-<!--                        <span>20-->
-<!--                                                                                                                Reviews</span>-->
-<!--                      </p>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                (85%)-->
-<!--                                                                                                        </span>-->
-<!--                        <span>10-->
-<!--                                                                                                                Reviews</span>-->
-<!--                      </p>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                (70%)-->
-<!--                                                                                                        </span>-->
-<!--                        <span>5-->
-<!--                                                                                                                Reviews</span>-->
-<!--                      </p>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                (10%)-->
-<!--                                                                                                        </span>-->
-<!--                        <span>0-->
-<!--                                                                                                                Reviews</span>-->
-<!--                      </p>-->
-<!--                      <p class="star">-->
-<!--                                                                                                        <span>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                <i-->
-<!--                                                                                                                        class="ion-ios-star"></i>-->
-<!--                                                                                                                (0%)-->
-<!--                                                                                                        </span>-->
-<!--                        <span>0-->
-<!--                                                                                                                Reviews</span>-->
-<!--                      </p>-->
-<!--                    </div>-->
-<!--                  </div>-->
-<!--                </div>-->
-<!--              </div>-->
-<!--            </div>-->
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
+                                </div>   </div>
+                        </div>
+                    </div>
+                    <!--                    end context-->
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+</section>
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
