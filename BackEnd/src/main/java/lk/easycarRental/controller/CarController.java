@@ -16,9 +16,8 @@ import java.math.BigDecimal;
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/car")
 @CrossOrigin
-
+@RequestMapping("/car")
 public class CarController {
     @Autowired
     private CarService service;
@@ -36,6 +35,7 @@ public class CarController {
             @RequestParam BigDecimal dailyPrice,
             @RequestParam BigDecimal monthlyPrice,
             @RequestParam BigDecimal priceForExtraKM,
+            @RequestParam BigDecimal lossDamageWaiver,
             @RequestParam String color,
             @RequestParam boolean availability,
             @RequestPart("file1") MultipartFile file1,
@@ -44,7 +44,7 @@ public class CarController {
             @RequestPart("file4") MultipartFile file4
     ) throws IOException {
 
-        CarDTO dto = new CarDTO(vehicalNo,brand,type,noOfPassenger,transmissionType,fuelType,monthlyPrice,dailyPrice,priceForExtraKM,mileage,serviceMileage,color,availability,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
+        CarDTO dto = new CarDTO(vehicalNo,brand,type,noOfPassenger,transmissionType,fuelType,monthlyPrice,dailyPrice,priceForExtraKM,lossDamageWaiver,mileage,serviceMileage,color,availability,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
         service.saveCar(dto);
         return new ResponseUtil("OK","Successfully Registered.!",null);
 
@@ -63,6 +63,7 @@ public class CarController {
             @RequestParam BigDecimal dailyPrice,
             @RequestParam BigDecimal monthlyPrice,
             @RequestParam BigDecimal priceForExtraKM,
+            @RequestParam BigDecimal lossDamageWaiver,
             @RequestParam String color,
             @RequestParam boolean availability,
             @RequestPart(name = "file1", required = false) MultipartFile file1,
@@ -71,7 +72,7 @@ public class CarController {
             @RequestPart(name = "file4",required = false) MultipartFile file4
     ) throws IOException {
 
-        CarDTO dto = new CarDTO(vehicalNo,brand,type,noOfPassenger,transmissionType,fuelType,monthlyPrice,dailyPrice,priceForExtraKM,mileage,serviceMileage,color,availability,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
+        CarDTO dto = new CarDTO(vehicalNo,brand,type,noOfPassenger,transmissionType,fuelType,monthlyPrice,dailyPrice,priceForExtraKM,lossDamageWaiver,mileage,serviceMileage,color,availability,file1.getBytes(),file2.getBytes(),file3.getBytes(),file4.getBytes());
         service.updateCar(dto);
         return new ResponseUtil("OK","Successfully Updated.!",null);
 

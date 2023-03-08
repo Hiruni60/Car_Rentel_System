@@ -72,9 +72,9 @@
                           <div class="col-md-9 pe-5" style="padding-bottom: 9px;">
                             <select class="form-select" aria-label="Transmission" name="type">
 <!--                              <option selected>Transmission Types</option>-->
-                              <option value="1">General</option>
-                              <option value="2">Premium</option>
-                              <option value="3">Luxury</option>
+                              <option value="General">General</option>
+                              <option value="Premium">Premium</option>
+                              <option value="Luxury">Luxury</option>
 
                             </select>
 
@@ -154,8 +154,8 @@
 
                             <select class="form-select" aria-label="Transmission" name="transmissionType">
                               <option selected>Transmission Types</option>
-                              <option value="1">Automatic</option>
-                              <option value="2">Manual</option>
+                              <option value="Automatic">Automatic</option>
+                              <option value="Manual">Manual</option>
                             </select>
 
                           </div>
@@ -173,8 +173,8 @@
 
                             <select class="form-select" aria-label="FuelType"name="fuelType">
                               <option selected>Fuel Types</option>
-                              <option value="1">Petrol</option>
-                              <option value="2">Diesel</option>
+                              <option value="Petrol">Petrol</option>
+                              <option value="Diesel">Diesel</option>
                             </select>
 
                           </div>
@@ -228,6 +228,20 @@
                         </div>
 
                         <hr class="mx-n3">
+                          <div class="row align-items-center pt-4 pb-3">
+                            <div class="col-md-3 ps-5">
+
+                              <h6 class="mb-0">Loss Damage Wavier</h6>
+
+                            </div>
+                            <div class="col-md-9 pe-5">
+
+                              <input type="text" class="form-control form-control-lg" name="lossDamageWaiver"/>
+
+                            </div>
+                          </div>
+
+                          <hr class="mx-n3">
 
                         <div class="row align-items-center pt-4 pb-3">
                           <div class="col-md-3 ps-5">
@@ -306,7 +320,10 @@
                   </div>
                 </div>
               </div>
+              </div>
+
             </section>
+
           </div>
         </div>
       </div>
@@ -426,7 +443,7 @@
 
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="assests/lib/jquery.min.js"></script>
 <script>
   let baseUrl = "http://localhost:8080/BackEnd_war/"
   // form eke id eka, file chooser 4 id, name tika samana wenna one  controller eke @RequestParam
@@ -457,7 +474,8 @@
         loadAllCars();
       },
       error: function (error) {
-        alert(error);
+        // alert(error);
+        console.dir(error);
       },
     });
   }
@@ -469,6 +487,26 @@
   $("#carUpdate").click(function () {
     prepareCarForm("car/update", "post");
   });
+
+  $(".car-del").click(function () {
+    let regNo = $(this).parent().children("p#lblCarRegNo").text();
+    $.ajax({
+      url: baseURL + "car/remove?registrationNumber=" + regNo,
+      method: "delete",
+      dataType: "json",
+      success: function (res) {
+        alert(res.message);
+        loadAllCars();
+      },
+      error: function (error) {
+        // var jsObject = JSON.parse(error.responseText);
+        // alert(jsObject.message);
+      },
+    });
+  });
+
+
+
 
 
 

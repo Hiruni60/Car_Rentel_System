@@ -23,6 +23,7 @@ public class CarDTO {
     private BigDecimal monthlyPrice;
     private BigDecimal dailyPrice;
     private BigDecimal priceForExtraKM;
+    private BigDecimal lossDamageWaiver;
     private int mileage;
     private int serviceMileage;
     private String color;
