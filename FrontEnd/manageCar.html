@@ -482,10 +482,12 @@
   // car-add
   $("#carSave").click(function () {
     prepareCarForm("car/save", "post");
+    clearTextFields()
   });
   // car-update
   $("#carUpdate").click(function () {
     prepareCarForm("car/update", "post");
+    clearTextFields()
   });
 
   $(".car-del").click(function () {
@@ -505,7 +507,17 @@
     });
   });
 
+  function clearTextFields(){
+    //$("#carAdd").find(":input")
+    $("form#CarForms :input").val('')
 
+  }
+
+  // $('#clearDetails').click(function (){
+  //   console.log("clear")
+  //   clearTextFields()
+  //
+  // });
 
 
 

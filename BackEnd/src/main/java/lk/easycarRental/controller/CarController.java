@@ -92,9 +92,9 @@ public class CarController {
 
     @RequestMapping(value = "/find", method = RequestMethod.GET)
     public ResponseUtil getAllCar(@RequestParam String vehicalNo){
-        //CarDTO data = service.findCarByVehicalNo(vehicalNo);
-       // return new ResponseUtil("OK","Successful!",data);
-        return null;
+        CarDTO data = service.findCarByVehicalNo(vehicalNo);
+        return new ResponseUtil("OK","Successful!",data);
+//        return null;
     }
 
     @RequestMapping(value = "/countCarsByAvailabilityIsTrue", method = RequestMethod.GET)
@@ -106,6 +106,7 @@ public class CarController {
 //    public ResponseUtil countCarsScheduled(){
 //        return new ResponseUtil("OK","Successful!",CarService.countCarsScheduled());
 //    }
+
 
 
 

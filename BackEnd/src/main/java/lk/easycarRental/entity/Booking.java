@@ -9,6 +9,8 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import java.math.BigDecimal;
+import java.time.LocalDate;
+
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,8 +20,8 @@ import java.math.BigDecimal;
 public class Booking {
     @Id
     private String bookingID;
-    private String currentDate;
-    private String dueDate;
+    private LocalDate currentDate;
+    private LocalDate dueDate;
     private BigDecimal advance;
     private String accepted;
     private BigDecimal total;

@@ -3,10 +3,14 @@ package lk.easycarRental.controller;
 
 
 import lk.easycarRental.dto.DriverDTO;
+import lk.easycarRental.entity.Driver;
 import lk.easycarRental.service.DriverService;
 import lk.easycarRental.util.ResponseUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 
 @RestController
@@ -41,6 +45,15 @@ public class DriverController {
     public ResponseUtil updateDriver(@RequestBody DriverDTO dto){
         service.updateDriver(dto);
         return new ResponseUtil("ok","successfully updated",null);
+    }
+
+    @RequestMapping(value = "/findRandom", method = RequestMethod.GET)
+    public ResponseUtil getDriverRandomly(@RequestParam String date1, @RequestParam String date2){
+        DateTimeFormatter dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+        LocalDate dt1 = LocalDate.parse(date1,dateTimeFormatter);
+        LocalDate dt2 = LocalDate.parse(date2,dateTimeFormatter);
+        DriverDTO data = service.findDriverRandomly(dt1,dt2);
+        return new ResponseUtil("OK","Successful!",data);
     }
 
     @GetMapping(params = {"licenceNum"})

@@ -12,7 +12,7 @@ public interface CarService {
 
     void updateCar(CarDTO dto);
 
-    ArrayList<CarDTO> findCarByVehicalNo();
+    CarDTO findCarByVehicalNo(String vehicalNo);
 
     int countCarsByAvailabilityIsTrue();
 

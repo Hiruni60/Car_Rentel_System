@@ -20,6 +20,8 @@ public class BookingServiceImpl implements BookingService {
     private ModelMapper mapper;
     @Override
     public void saveBookings(BookingDTO dto) {
+        String s = generateBookingId();
+        dto.setBookingID(s);
         repo.save(mapper.map(dto, Booking.class));
     }
 
@@ -37,4 +39,13 @@ public class BookingServiceImpl implements BookingService {
     public ArrayList<BookingDTO> getAllBookings() {
         return mapper.map(repo.findAll(),new TypeToken<ArrayList<BookingDTO>>(){}.getType());
     }
+
+    @Override
+    public String generateBookingId() {
+        long l = repo.countAllBy();
+        return "BOID-"+(l+1);
+
+    }
+
+
 }

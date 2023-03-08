@@ -26,4 +26,5 @@ public class BookingController {
         return new ResponseUtil("ok","successfully loaded",service.getAllBookings());
 
     }
+
 }

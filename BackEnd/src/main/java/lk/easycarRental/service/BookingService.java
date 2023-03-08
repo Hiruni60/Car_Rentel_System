@@ -9,4 +9,7 @@ public interface BookingService {
     public void deleteBookings(String vehicleNum);
     public void updateBookings(BookingDTO dto);
     public ArrayList<BookingDTO> getAllBookings();
+    String generateBookingId();
+
+
 }

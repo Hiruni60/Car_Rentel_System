@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 
@@ -51,6 +52,11 @@ public class DriverServiceImpl implements DriverService {
             throw new RuntimeException("Wrong nic..Please Check the nic");
         }
         repo.save(mapper.map(dto,Driver.class));
+    }
+
+    @Override
+    public DriverDTO findDriverRandomly(LocalDate date1 , LocalDate date2) {
+        return mapper.map(repo.selectDriverRandomly(date1 ,date2),DriverDTO.class);
     }
 
 

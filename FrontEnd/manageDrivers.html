@@ -302,7 +302,8 @@
             data:formData,
             success:function (res){
                 alert(res.message);
-               // LoadAllDriver()
+                LoadAllDriver();
+                clearTextFields();
             },
             error:function (error) {
                 alert(JSON.parse(error.responseText).message);
@@ -339,7 +340,8 @@
             method:"delete",
             success:function (res){
                 alert(res.message);
-                LoadAllDriver()
+                LoadAllDriver();
+                clearTextFields();
             },
             error:function (error){
 
@@ -359,6 +361,17 @@
             }
         })
     };
+    function clearTextFields(){
+        //$("#carAdd").find(":input")
+        $("form#DriverForms :input").val('')
+
+    }
+    //
+    // $('#clearDetails').click(function (){
+    //     console.log("clear")
+    //     clearTextFields()
+    //
+    // });
 
     //Update Drivers
     $('#btnDriverUpdate').click(function (){
@@ -380,12 +393,16 @@
             success:function (res){
                 alert(res.message);
                 LoadAllDriver();
+                clearTextFields();
             },
             error:function (error) {
                 alert(JSON.parse(error.responseText).message);
             }
         })
     });
+    $('#getAllDrivers').click(function (){
+        LoadAllDriver();
+    })
 </script>
 
 

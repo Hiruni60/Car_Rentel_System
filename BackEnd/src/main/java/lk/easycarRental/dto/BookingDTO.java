@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.ToString;
 
 import java.math.BigDecimal;
+import java.time.LocalDate;
 
 @AllArgsConstructor
 @NoArgsConstructor
@@ -13,8 +14,8 @@ import java.math.BigDecimal;
 @Data
 public class BookingDTO {
     private String bookingID;
-    private String currentDate;
-    private String dueDate;
+    private LocalDate currentDate;
+    private LocalDate dueDate;
     private BigDecimal advance;
 
     private String accepted;

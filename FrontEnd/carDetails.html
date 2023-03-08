@@ -87,10 +87,10 @@
 
             <div class="nav justify-content-end" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link active fw-bold" aria-current="page" href="#" style="font-size: 20px; padding-left: 18px; padding-right: 18px">Home</a>
-                    <a class="nav-link fw-bold" href="#aboutSection" style="font-size: 20px;padding-left: 18px; padding-right: 18px">About Us</a>
+                    <a class="nav-link active fw-bold" aria-current="page" href="index.html" style="font-size: 20px; padding-left: 18px; padding-right: 18px">Home</a>
+                    <a class="nav-link fw-bold" href="#aboutSection" style="font-size: 20px;padding-left: 18px; padding-right: 18px">AboutUs</a>
 
-                            <a class="dropdown-item" href="#" data-bs-target="#customerForm" data-bs-toggle="modal">Customer SignIn</a>
+                            <a class="dropdown-item nav-link fw-bold" href="#" data-bs-target="#customerForm" data-bs-toggle="modal" style="font-size: 20px;padding-left: 18px; padding-right: 18px">Customer SignIn</a>
 
                             <!--            <li><a class="dropdown-item" href="#">Something else here</a></li>-->
 
@@ -232,13 +232,18 @@
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtMonthlyPrice">
                                                             </div>
                                                             <div class="input-group input-group-sm mb-3">
-                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Customer Name </span>
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml5">Loss Damage Waiver </span>
+                                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtLossDamage">
+                                                            </div>
+                                                            <div class="input-group input-group-sm mb-3">
+                                                                <span class="input-group-text" id="inputGroup-sizing-sml6">Customer Name </span>
                                                                 <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" id="txtCustomerName" name="name">
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
-                                                <h4>Your Booking Id</h4><h5 id="bookingId" >B000</h5>
+                                                <h4>Your Booking Id</h4><h5 id="bookingId" ></h5>
+                                                <input type="text" class="form-control" aria-label="Sizing example input" aria-describedby="" id="txtBookingId" name="bookingId">
                                             </div>
                                         </div>
                                     </div>
@@ -342,138 +347,15 @@
     let baseUrl = "http://localhost:8080/BackEnd_war/"
 
     let loginCustomer=null;
+    let Driver = null
     // load car cards
-    function loadAllCarsForSelection() {
-        $("#carSelection").empty();
-        $.ajax({
-            url: baseUrl + "car/getAll",
-            dataType: "json",
-            success: function (resp) {
-                console.log(resp.data);
-                resp.data.forEach((car) => {
-                    let {
-                        brand,
-                        type,
-                        fuelType,
-                        img_back,
-                        img_front,
-                        img_interior,
-                        img_side,
-                        monthlyPrice,
-                        dailyPrice,
-                        vehicalNo,
-                    } = car;
-                    var url = window.URL || window.webkitURL;
-                    $("#carSelection").append(
-                        `<div class="card mb-3 col col-6">
-  <section class="row">
-    <img src="data:image/png;base64, ${img_back}" class="car-card-img col col-6 " typeof="png,jpg,jpeg" width="140" height="130">
-    <img src="data:image/png;base64, ${img_front}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">
-    <img src="data:image/png;base64, ${img_interior}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">
-    <img src="data:image/png;base64, ${img_side}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">
- </section>
-
-
-  <div class="card-body">
-    <h5 class="card-title">${car.vehicalNo}</h5>
-    <p class="card-text">Brand : ${car.brand}</p>
-    <p class="card-text">Type : ${car.type}</p>
-    <p class="card-text">Fuel Type : ${car.fuelType}</p>
-    <p class="card-text">Monthly Price : ${car.monthlyPrice}</p>
-    <p class="card-text">Daily Price : ${car.dailyPrice}</p>
-      <button class="btn btn-success" data-bs-target="#exampleModal" data-bs-toggle="modal" type="button" id="booking">Booking</button>
-
-  </div>
-
-</div>
-`
-                    );
-                    $('#carSelection>div>div>button').click(function (){
-                         if (loginCustomer==null){
-                             alert("can't create booking")
-
-                         }else {
-                             loadingBookingModal(car);
-
-                         }
-                        //loadingBookingModal(car);
-
-                    })
-                });
-
-                // <img className="col col-6" src="assests/front_${car.vehicalNo}.jpg" width="150" height="130">
-                //     <img className="col col-6" src="assests/back_${car.vehicalNo}.jpg" width="150" height="130">
-                //         <img className="col col-6" src="assests/front_${car.vehicalNo}.jpg" width="150" height="130">
-                //             <img className="col col-6" src="assests/back_${car.vehicalNo}.jpg" width="150" height="130">
-                // button functionalities
-                // $(".book-btn").click(function () {
-                //     // is user is logged in
-                //     if (cookieTable.user) {
-                //         let regNo = $(this)
-                //             .parent()
-                //             .parent()
-                //             .children(".car-reg-no")
-                //             .text();
-                //         $.ajax({
-                //             url: baseURL + "car/find?registrationNumber=" + regNo,
-                //             method: "get",
-                //             dataType: "json",
-                //             success: function (res) {
-                //                 let car = res.data;
-                //                 $("#car-single-selection span[id]").each(function () {
-                //                     $(this).text(car[$(this).attr("id")]);
-                //                 });
-                //                 let advance = 0.0;
-                //                 switch (car.type) {
-                //                     case "General":
-                //                         advance = 10000.0;
-                //                         break;
-                //                     case "Premium":
-                //                         advance = 15000.0;
-                //                         break;
-                //                     case "Luxury":
-                //                         advance = 20000.0;
-                //                         break;
-                //                 }
-                //                 $("span#advancePayment").text(advance);
-                //                 changeActiveTab("#car-single-selection");
-                //             },
-                //             error: function () {
-                //                 return null;
-                //             },
-                //         });
-                //     } else {
-                //         alert("please Login to proceed!");
-                //     }
-                // });
-            },
-        });
-    }
-
-    loadAllCarsForSelection()
-
-
-    $('#btnCusLogin').click(function (){
-
-        let userName =$('#txtCustomerNic').val();
-        let password = $('#txtCustomerPassword').val();
-
-        $.ajax({
-            url: baseUrl+"customer?nic="+userName,
-            dataType: "json",
-            async:false,
-            success:function (res) {
-                if (password==res.data.password){
-                    loginCustomer=res.data;
-                    alert("ok;");
-                }
-
-                console.log(res.data)
-            }
-        })
-    })
-
     function loadingBookingModal(car){
+
+        // if (loginCustomer==null){
+        //     alert("can't booking")
+        //     return
+        // }
+        $('#exampleModal').modal('show');
         console.log("carrrrrrr");
         console.log(car);
         $('#txtCarNUm').val(car.vehicalNo);
@@ -481,7 +363,8 @@
         $('#txtType').val(car.type);
         $('#txtDailyPrice').val(car.dailyPrice);
         $('#txtMonthlyPrice').val(car.monthlyPrice);
-        $('#txtCustomerName').val(loginCustomer.name);
+        $('#txtLossDamage').val(car.lossDamageWaiver);
+         $('#txtCustomerName').val(loginCustomer.name);
 
         let currentDate = $('#BookingDate').val();
         let returnDate = $('#returnDate').val();
@@ -489,19 +372,21 @@
         let dateDif = new Date(returnDate) - new Date(currentDate);
         $('#txtDays').val(dateDif);
 
-
+        // $('#txtBookingId').on("")
 
         $('#btnBooking').click(function (){
+            let bookingId = $('#txtBookingId').val();
             let currentDate = $('#BookingDate').val();
             let returnDate = $('#returnDate').val();
             let accepted = "true";
             let total = 20000;
-            let driver = findDriver();
+            let driver = Driver;
             let carOb = car;
             let customer = loginCustomer;
 
+            console.log(Driver)
             var bookingOB = {
-                bookingID:"B-001",
+                bookingID: bookingId,
                 currentDate:currentDate,
                 dueDate:returnDate,
                 advance:2000,
@@ -532,9 +417,172 @@
 
 
 
-
-
     };
+    function loadAllCarsForSelection() {
+        $("#carSelection").empty();
+        $.ajax({
+            url: baseUrl + "car/getAll",
+            dataType: "json",
+            success: function (resp) {
+                console.log(resp.data);
+                resp.data.forEach((car) => {
+                    let {
+                        brand,
+                        type,
+                        fuelType,
+                        img_back,
+                        img_front,
+                        img_interior,
+                        img_side,
+                        lossDamageWaiver,
+                        monthlyPrice,
+                        dailyPrice,
+                        vehicalNo,
+                    } = car;
+                    var url = window.URL || window.webkitURL;
+                    $("#carSelection").append(
+                        `<div class="card mb-3 col col-6">` +
+  `<section class="row">` +
+    `<img src="data:image/png;base64, ${img_back}" class="car-card-img col col-6 " typeof="png,jpg,jpeg" width="140" height="130">`+
+    `<img src="data:image/png;base64, ${img_front}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">`+
+    `<img src="data:image/png;base64, ${img_interior}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">`+
+    `<img src="data:image/png;base64, ${img_side}" class="car-card-img col col-6" typeof="png,jpg,jpeg" width="140" height="130">`+
+` </section>`+
+
+
+  `<div class="card-body">`+
+    `<h5 class="card-title">${car.vehicalNo}</h5>`+
+    `<p class="card-text">Brand : ${car.brand}</p>`+
+    `<p class="card-text">Type : ${car.type}</p>`+
+    `<p class="card-text">Fuel Type : ${car.fuelType}</p>`+
+    `<p class="card-text">Monthly Price : ${car.monthlyPrice}</p>`+
+   ` <p class="card-text">Daily Price : ${car.dailyPrice}</p>`+
+    `<p class="card-text">Loss Damage Waiver : ${car.lossDamageWaiver}</p>`+
+      `<button class="btn btn-success open-btn"   type="button" id="booking" >Booking</button>`+
+
+  `</div>`+
+
+`</div>`
+                    //data-bs-target="#exampleModal" data-bs-toggle="modal"
+                    );
+                    //data-bs-target="#exampleModal" data-bs-toggle="modal"
+
+                });
+                $('.open-btn').click(function (){
+                    let regNo = $(this).parent().find("h5").text()
+                    console.log(regNo)
+                    // $.ajax({
+                    //     url: baseUrl + "car/find?vehicalNo=" + regNo,
+                    //     dataType: "json",
+                    //     method : "get",
+                    //     async: false,
+                    //     success: function (res) {
+                    //         loadingBookingModal(res.data);
+                    //
+                    //     }
+                    // })
+
+                    if (loginCustomer==null){
+                        alert("can't yko")
+
+                    }else {
+                        $.ajax({
+                            url: baseUrl + "car/find?vehicalNo=" + regNo,
+                            dataType: "json",
+                            method : "get",
+                            async: false,
+                            success: function (res) {
+                                loadingBookingModal(res.data);
+
+                            }
+                        })
+
+                    }
+                    //loadingBookingModal(car);
+
+                })
+
+            },
+        });
+    }
+
+    // function generateNextId() {
+    //     $.ajax({
+    //         url: baseURL + "booking/lastId",
+    //         method: "get",
+    //         dataType: "json",
+    //         success: function (res) {
+    //             let prevId = res.data;
+    //             let nextId;
+    //             if (prevId) {
+    //                 let [prefix, suffix] = prevId.split("-");
+    //                 val = parseInt(suffix);
+    //                 nextId = prefix + "-" + (val + 1);
+    //             } else {
+    //                 nextId = "BK-1";
+    //             }
+    //             placeBooking(nextId);
+    //         },
+    //         error: function (error) {
+    //             // var jsObject = JSON.parse(error.responseText);
+    //             // alert(jsObject.message);
+    //         },
+    //     });
+    // }
+
+
+
+    loadAllCarsForSelection()
+
+
+    $('#btnCusLogin').click(function (){
+
+        let userName =$('#txtCustomerNic').val();
+        let password = $('#txtCustomerPassword').val();
+
+        $.ajax({
+            url: baseUrl+"customer?nic="+userName,
+            dataType: "json",
+            async:false,
+            success:function (res) {
+                if (password==res.data.password){
+                    loginCustomer=res.data;
+                    alert("ok;");
+                }
+
+                console.log(res.data)
+            }
+        })
+    })
+    $("#chcHireDriver").change(function () {
+        if ($(this).is(":checked")) {
+            let data = "?date1=" +  $('#BookingDate').val() + "&date2=" +  $('#returnDate').val();
+            $.ajax({
+                url: baseUrl + "driver/findRandom" + data,
+                dataType: "json",
+                method : "get",
+                async: false,
+                success: function (res) {
+                    Driver = res.data
+                    let license = res.data.licenceNum
+                    let name = res.data.name
+
+                    $('#txtDrivers').val(license);
+                    $('#txtDriverName').val(name);
+
+                }
+            })
+        }else {
+            $('#txtDrivers').val("");
+            $('#txtDriverName').val("");
+            Driver = null
+        }
+    })
+
+
+
+
+
 
     function findDriver() {
         let response = "";

@@ -44,10 +44,10 @@ public class CarServiceImpl implements CarService {
 
 
     @Override
-    public ArrayList<CarDTO> findCarByVehicalNo() {
-       // return mapper.map(repo.findCarByVehicalNo(vehicalNo),CarDTO.class);
+    public CarDTO findCarByVehicalNo(String vehicalNo) {
+        return mapper.map(repo.findCarByVehicalNo(vehicalNo),CarDTO.class);
 
-        return null;
+
     }
 
 
